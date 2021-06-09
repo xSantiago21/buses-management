@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bus fast pay</title>
+    <link href="@Url.Content("~/Content/cssCustome/style-pay.css")" rel="stylesheet" type="text/css" />
+    <!-- ICONIFY -->
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="d-flex align-items-start justify-content-center min-vh-100" style="background-color: rgba(0,0,0,0.3)">
+
+        <div class="w-100 pb-4" style="background-color: rgba(0,0,0,0.7)">
+
+            <div class="d-flex mb-4 w-100 px-2 py-2" style="background-color: black;">
+                <a href="@Url.Action("Index","GeneraQR")" class="btn btn-info px-1 pt-0 pb-1 mr-auto">
+                    <span style="font-size:22px;" class="iconify nav-ico-opt" data-icon="mdi:keyboard-return" data-inline="false"></span>
+                </a>
+                <a href="@Url.Action("CerrarSesion","Inicio")" class="btn btn-danger px-1 pt-0 pb-1 ml-auto">
+                    <span style="font-size:22px;" class="iconify nav-ico-opt" data-icon="bx:bxs-door-open" data-inline="false"></span>
+                </a>
+            </div>
+
+            @if (ViewBag.IdUsuarioInvalido != null)
+            {
+                if (ViewBag.IdUsuarioInvalido)
+                {
+                    <div class="alert alert-danger mb-0 mx-2" role="alert">
+                        Cliente no encontrado!
+                    </div>
+                }
+            }
+
+            @if (ViewBag.SaldoInsuficiente != null)
+            {
+                if (ViewBag.SaldoInsuficiente)
+                {
+                    <div class="alert alert-danger mb-0 mx-2" role="alert">
+                        Saldo insuficiente!
+                    </div>
+                }
+            }
+
+            @if (ViewBag.PagoRealizado != null)
+            {
+                if (ViewBag.PagoRealizado)
+                {
+                    <div class="alert alert-success mb-0 mx-2" role="alert">
+                        Pago realizado con éxito!
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger mb-0 mx-2" role="alert">
+                        Error al realizar el pago!
+                    </div>
+                }
+            }
+
+        </div>
+
+    </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

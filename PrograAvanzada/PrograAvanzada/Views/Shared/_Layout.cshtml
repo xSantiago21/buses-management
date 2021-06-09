@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Bus fast pay</title>
+    <link href="@Url.Content("~/Content/cssCustome/keyframes.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/cssCustome/index.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/cssCustome/style-float-labels.css")" rel="stylesheet" type="text/css" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <!--Seccion del BODY-->
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

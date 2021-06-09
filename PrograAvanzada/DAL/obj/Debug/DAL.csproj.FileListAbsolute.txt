@@ -1,0 +1,7 @@
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\bin\Debug\DAL.dll.config
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\bin\Debug\DAL.dll
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\bin\Debug\DAL.pdb
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\obj\Debug\DAL.dll
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\obj\Debug\DAL.pdb
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache

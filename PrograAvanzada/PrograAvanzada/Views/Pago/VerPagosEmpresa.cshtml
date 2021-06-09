@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PrograAvanzada.Models.Pago>
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="cont-table my-5 py-3 px-1 px-sm-3 shadow">
+
+        <div style="overflow-x: auto">
+            <table class="table table-striped table-hover">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th nowrap>@Html.DisplayNameFor(model => model.NombreEmpresa)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.NombreUnidad)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.IdentificacionUsuario)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Monto)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Fecha)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Latitud)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Longitud)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Estado)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.NombreEmpresa)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NombreUnidad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdentificacionUsuario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Monto)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Latitud)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Longitud)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+

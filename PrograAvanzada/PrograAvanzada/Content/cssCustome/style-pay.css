@@ -1,0 +1,16 @@
+﻿body {
+    background-image: url(../img/wpBus_Mov.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-x: center;
+}
+
+.cont-opc {
+    background-color: rgba(0,0,0,0.9);
+    width: 100%;
+}
+
+.name {
+    color: rgba(255,255,255,1);
+}

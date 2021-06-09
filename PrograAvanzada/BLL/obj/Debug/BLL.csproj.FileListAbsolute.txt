@@ -1,0 +1,50 @@
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\bin\Debug\BLL.dll
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\bin\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\bin\Debug\DAL.dll
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\bin\Debug\DAL.pdb
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\bin\Debug\DAL.dll.config
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\obj\Debug\BLL.dll
+C:\Users\santi\Desktop\-\PrograAvanzada\BLL\obj\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\bin\Debug\BLL.dll
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\bin\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\bin\Debug\DAL.dll
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\bin\Debug\DAL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\bin\Debug\DAL.dll.config
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\obj\Debug\BLL.dll
+C:\Users\santi\Desktop\-\Programacion Avanzada\v1\PrograAvanzada\BLL\obj\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\obj\Debug\BLL.dll
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\obj\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\bin\Debug\BLL.dll
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\bin\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\bin\Debug\DAL.dll
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\bin\Debug\DAL.pdb
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\bin\Debug\DAL.dll.config
+C:\Users\santi\Desktop\-\Programacion Avanzada\v2\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\bin\Debug\BLL.dll
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\bin\Debug\BLL.pdb
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\bin\Debug\DAL.dll
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\bin\Debug\DAL.pdb
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\bin\Debug\DAL.dll.config
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\obj\Debug\BLL.dll
+D:\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\v2\PrograAvanzada\BLL\obj\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\bin\Debug\BLL.dll
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\bin\Debug\BLL.pdb
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\bin\Debug\DAL.dll
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\bin\Debug\DAL.pdb
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\bin\Debug\DAL.dll.config
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\obj\Debug\BLL.dll
+C:\Users\santi\Desktop\-\Respaldo TEMP\U\Cuatri 7\Progra Avanzada\Proyecto\Proyecto\PrograAvanzada\BLL\obj\Debug\BLL.pdb

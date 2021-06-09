@@ -1,0 +1,102 @@
+﻿@model PrograAvanzada.Models.Empresa
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="cont-forms-crud my-5 mx-auto py-3 px-1 px-sm-3 shadow col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6">
+
+        <div class="w-100">
+
+            <h4 class="text-center mt-2 text-info">Eliminar Empresa</h4>
+            <hr class="mb-4" />
+
+            <dl class="dl-horizontal px-2 px-sm-4 mb-4">
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.DescTipoIdentificacion)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.DescTipoIdentificacion)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Identificacion)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Identificacion)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Telefono)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Contacto)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Contacto)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Estado)
+                </dd>
+
+            </dl>
+
+            <form action="/Empresa/Eliminar" method="post" class="w-100">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.IdEmpresa)
+                @Html.HiddenFor(model => model.Descripcion)
+                @Html.HiddenFor(model => model.DescTipoIdentificacion)
+                @Html.HiddenFor(model => model.Identificacion)
+                @Html.HiddenFor(model => model.Telefono)
+                @Html.HiddenFor(model => model.Contacto)
+                @Html.HiddenFor(model => model.Estado)
+
+                @if (ViewBag.error != null)
+                {
+                    if (ViewBag.error)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            Error al eliminar!
+                        </div>
+                    }
+                }
+
+                <div class="form-group mt-4">
+                    <div class="col-md-12">
+                        <input type="submit" value="Eliminar" class="btn btn-block btn-danger" />
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center mt-4 mb-3">
+                    @Html.ActionLink("Regresar", "Index", null, new { @class = "text-info" })
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>

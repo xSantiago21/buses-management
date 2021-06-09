@@ -1,0 +1,199 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    bool EsAdmin = User.IsInRole("Admin") ? true : false;
+    bool EsGerente = User.IsInRole("Gerente") ? true : false;
+    bool EsSupervisor = User.IsInRole("Supervisor") ? true : false;
+    bool EsCliente = User.IsInRole("Cliente") ? true : false;
+}
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="my-5 py-1 px-1 px-sm-3">
+
+        <div class="row w-100 m-0 justify-content-center align-content-center">
+
+            @if (EsAdmin)
+            {
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/usuarios.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Usuarios</h5>
+                            <p class="card-text">
+                                Administrar usuarios
+                            </p>
+                            <a href="@Url.Action("VerUsuarios","Usuario")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/placas.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Placas</h5>
+                            <p class="card-text">
+                                Administrar placas
+                            </p>
+                            <a href="@Url.Action("Index","TipoPlaca")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/bitacora.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Bitácora</h5>
+                            <p class="card-text">
+                                Administrar bitácora
+                            </p>
+                            <a href="@Url.Action("Index","Bitacora")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+            }<!--Fin Admin-->
+
+            @if (EsGerente || EsSupervisor)
+            {
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/empresas.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Empresas</h5>
+                            <p class="card-text">
+                                Administrar empresas
+                            </p>
+                            <a href="@Url.Action("Index","Empresa")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/tarifas.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tarifas</h5>
+                            <p class="card-text">
+                                Administrar tarifas
+                            </p>
+                            <a href="@Url.Action("Index","Tarifa")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/lineas.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Lineas</h5>
+                            <p class="card-text">
+                                Administrar lineas
+                            </p>
+                            <a href="@Url.Action("Consulta","Linea")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/unidades.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Unidades</h5>
+                            <p class="card-text">
+                                Administrar unidades
+                            </p>
+                            <a href="@Url.Action("Consulta","Unidad")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            }<!--Fin Gerente y Supervisor-->
+
+            @if (EsSupervisor)
+            {
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/pagos.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pagos</h5>
+                            <p class="card-text">
+                                Consultar pagos
+                            </p>
+                            <a href="@Url.Action("ConsultaPagosEmpresa","Pago")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+            }<!--Fin Gerente y Supervisor-->
+
+            @if (EsCliente)
+            {
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/pago-qr.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pagos</h5>
+                            <p class="card-text">
+                                Consultar pagos
+                            </p>
+                            <a href="@Url.Action("VerPagosUsuario","Pago")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/pagos.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Depósitos</h5>
+                            <p class="card-text">
+                                Consultar depósitos
+                            </p>
+                            <a href="@Url.Action("Index","Deposito")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 my-4 mx-3 p-0 col-cards">
+                    <div class="card">
+                        <div class="cont-img-card">
+                            <img src="~/Content/img/recarga.jpg" class="card-img-top" alt="opción">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Recarga</h5>
+                            <p class="card-text">
+                                Recargar saldo
+                            </p>
+                            <a href="@Url.Action("Crear","Deposito")" class="btn btn-outline-info">Gestionar</a>
+                        </div>
+                    </div>
+                </div>
+
+            }<!--Fin Cliente-->
+
+        </div>
+
+    </div>
+
+</div>

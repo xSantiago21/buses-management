@@ -1,0 +1,49 @@
+﻿body {
+    background-color: #f5f5f5 !important;
+    overflow: auto;
+    /*padding-left: 55px;*/
+    transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    -webkit-transition: padding 0.3s;
+}
+
+
+
+/*ESTILO CONTENEDOR DE TABLAS Y FORMULARIOS CRUD*/
+
+.cont-table, .cont-forms-crud {
+    background-color: white;
+    border-radius: 8px;
+    
+}
+
+.cont-table {
+    overflow-x: auto !important;
+}
+
+
+/*ESTILO INFO SECCION ELIMINAR*/
+
+.dt-title-prop {
+    color: rgba(0,0,0,0.72);
+}
+
+.dd-name-prop {
+    margin-top: 8px;
+    margin-bottom: 22px;
+    color: rgba(0,0,0,0.75);
+}
+
+
+
+
+
+
+
+/*
+@media (max-width: 720px) {
+    body {
+        padding-left: 0px !important;
+    }
+}
+*/

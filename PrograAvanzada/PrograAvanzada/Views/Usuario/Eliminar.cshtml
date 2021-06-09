@@ -1,0 +1,111 @@
+﻿@model PrograAvanzada.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="cont-forms-crud my-5 mx-auto py-3 px-1 px-sm-3 shadow col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6">
+
+        <div class="w-100">
+
+            <h4 class="text-center mt-2 text-info">Eliminar Usuario</h4>
+            <hr class="mb-4" />
+
+            <dl class="dl-horizontal px-2 px-sm-4 mb-4">
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Nombre2)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Nombre2)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Apellido1)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Apellido1)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Apellido2)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Apellido2)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Correo)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Correo)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Telefono)
+                </dd>
+
+                <dt class="dt-title-prop">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </dt>
+                <hr class="my-1" />
+                <dd class="dd-name-prop">
+                    @Html.DisplayFor(model => model.Estado)
+                </dd>
+
+            </dl>
+
+            <form action="/Usuario/Eliminar" method="post" class="w-100">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.IdUsuario)
+                @Html.HiddenFor(model => model.Nombre)
+                @Html.HiddenFor(model => model.Nombre2)
+                @Html.HiddenFor(model => model.Apellido1)
+                @Html.HiddenFor(model => model.Apellido2)
+                @Html.HiddenFor(model => model.Correo)
+                @Html.HiddenFor(model => model.Telefono)
+                @Html.HiddenFor(model => model.Estado)
+
+                @if (ViewBag.error != null)
+                {
+                    if (ViewBag.error)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            Error al eliminar!
+                        </div>
+                    }
+                }
+
+                <div class="form-group mt-4">
+                    <div class="col-md-12">
+                        <input type="submit" value="Eliminar" class="btn btn-block btn-danger" />
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center mt-4 mb-3">
+                    @Html.ActionLink("Regresar", "VerUsuarios", null, new { @class = "text-info" })
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>

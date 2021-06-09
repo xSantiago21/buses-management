@@ -1,0 +1,199 @@
+﻿@{
+    var dashTipe = Request.Browser.IsMobileDevice ? "dashboard-hide" : "dashboard-closed";
+    var paddingBody = Request.Browser.IsMobileDevice ? "paddingBody-Mobile" : "paddingBody-Desktop";
+    string nombre = Session["Nombre"].ToString() + " " + Session["Apellido1"].ToString();
+    string correo = Session["Correo"].ToString();
+    bool EsAdmin = User.IsInRole("Admin") ? true : false;
+    bool EsGerente = User.IsInRole("Gerente") ? true : false;
+    bool EsSupervisor = User.IsInRole("Supervisor") ? true : false;
+    bool EsCliente = User.IsInRole("Cliente") ? true : false;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Bus fast pay</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/cssCustome/style-default.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/cssCustome/style-navbar.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/cssCustome/style-dashboard.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/cssCustome/style-tables.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/cssCustome/style-cards.css")" rel="stylesheet" type="text/css" />
+    <!-- ICONIFY -->
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+</head>
+<body id="body" class="@paddingBody">
+
+
+    <!--NAVBAR-->
+
+    <header class="fixed-top">
+        <nav class="navbar navbar-dark bg-dark justify-content-start px-2">
+
+            <button onclick="toggleDashboard()" class="dashboard-toggler">
+                <span class="iconify dashboard-icon-toggler" data-icon="mdi:menu" data-inline="false"></span>
+            </button>
+
+            <div class="ml-4 d-flex align-items-center justify-content-center">
+                <img src="~/Content/img/iconBusPointD.png" alt="bus icon" class="" width="30" height="35">
+                @Html.ActionLink("Bus fast pay", "Index", "Usuario", null, new { @class = "navbar-brand ml-1" })
+            </div>
+
+            <div class="ml-auto">
+                <a href="@Url.Action("CerrarSesion","Inicio")" class="nav-a-opt mr-0 mr-sm-2 mr-md-3">
+                    <span class="nav-name-opt">Cerrar sesión</span>
+                    <span class="iconify nav-ico-opt" data-icon="bx:bxs-door-open" data-inline="false"></span>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!--DASHBOARD-->
+
+    <div id="dashboard" class="dashboard @dashTipe">
+
+        <div id="dashboard-top" class="dashboard-top-closed">
+            <a href="@Url.Action("EditarPerfil","Usuario")" class="dashboard-a-user-image d-block mx-auto">
+                <img src="~/Content/img/profile.jpg" class="dashboard-user-image" alt="User image">
+            </a>
+            <a href="@Url.Action("EditarPerfil","Usuario")" class="dashboard-a-name-user d-block text-center my-2">
+                <!--@Html.ViewContext.HttpContext.User.Identity.Name-->
+                @nombre
+                <br />
+                <p style="font-size: .8em;">@correo</p>
+            </a>
+            @if (EsCliente)
+            {
+                <h6 class="text-center text-success">Saldo: ₡ @Math.Truncate((decimal)Session["Saldo"])</h6>
+            }
+        </div>
+
+        <a href="#" id="dashboard-hide-toggler" onclick="hideDashboard()"
+           class="dashboard-a-opt dashboard-a-opt-closed">
+            <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed"
+                  data-icon="mdi:arrow-left-bold-circle-outline" data-inline="false"></span>
+        </a>
+
+        <hr />
+
+        <div id="dashboard-center">
+
+            <a href="@Url.Action("Index","Usuario")" class="dashboard-a-opt dashboard-a-opt-closed">
+                <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:home-circle-outline"
+                      data-inline="false"></span>
+                <span class="dashboard-name-opt dashboard-name-opt-closed">Inicio</span>
+            </a>
+
+            @if (EsAdmin)
+            {
+                <a href="@Url.Action("VerUsuarios","Usuario")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:account-edit-outline"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Usuarios</span>
+                </a>
+
+                <a href="@Url.Action("Index","TipoPlaca")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:card-bulleted-outline"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Placas</span>
+                </a>
+
+                <a href="@Url.Action("Index","Bitacora")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="clarity:list-outline-badged"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Bitácora</span>
+                </a>
+
+            }<!--Fin Admin-->
+
+            @if (EsGerente || EsSupervisor)
+            {
+                <a href="@Url.Action("Index","Empresa")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:domain-plus"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Empresas</span>
+                </a>
+
+                <a href="@Url.Action("Index","Tarifa")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:cash-usd-outline"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Tarifas</span>
+                </a>
+
+                <a href="@Url.Action("Consulta","Linea")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed"
+                          data-icon="mdi-bus-marker" data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Lineas</span>
+                </a>
+
+                <a href="@Url.Action("Consulta","Unidad")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed"
+                          data-icon="mdi-bus" data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Unidades</span>
+                </a>
+
+            }<!--Fin Gerente y Supervisor-->
+
+            @if (EsSupervisor)
+            {
+                <a href="@Url.Action("ConsultaPagosEmpresa","Pago")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:qrcode-scan"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Pagos</span>
+                </a>
+
+            }<!--Fin Supervisor-->
+
+            @if (EsCliente)
+            {
+                <a href="@Url.Action("VerPagosUsuario","Pago")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:qrcode-scan"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Pagos</span>
+                </a>
+
+                <a href="@Url.Action("Index","Deposito")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:clipboard-list-outline"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Depósitos</span>
+                </a>
+
+                <a href="@Url.Action("Crear","Deposito")" class="dashboard-a-opt dashboard-a-opt-closed">
+                    <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="mdi:cash-plus"
+                          data-inline="false"></span>
+                    <span class="dashboard-name-opt dashboard-name-opt-closed">Recarga</span>
+                </a>
+            }<!--Fin Cliente-->
+
+
+        </div>
+
+        <div id="dashboard-bottom" class="mb-3">
+            <hr class="m-1" />
+            <!--a href="@Url.Action("Index","Home")" class="dashboard-a-opt dashboard-a-opt-closed">
+                <span class="iconify dashboard-icon-opt dashboard-icon-opt-closed" data-icon="bx:bxs-door-open" data-inline="false"></span>
+                <span class="dashboard-name-opt dashboard-name-opt-closed">Cerrar sesión</span>
+            </a-->
+        </div>
+
+    </div>
+
+
+    @RenderBody()
+
+
+    <!-- JS PERSONALIZADO -->
+    <script src="~/Scripts/custome/dashboard-controller.js"></script>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿body {
+    background-image: url(../img/wpIndex2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.cont-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.icon-logIn {
+    fill: #00b3db;
+    animation: animateTop .75s ease-in;
+    -moz-animation: animateTop .75s ease-in;
+    -webkit-animation: animateTop .75s ease-in;
+}
+
+.titulo-form {
+    animation: animateBottom .8s ease-out;
+    -moz-animation: animateBottom .8s ease-out;
+    -webkit-animation: animateBottom .8s ease-out;
+}
+
+
+.btn {
+    transition: .2s !important;
+    -moz-transition: .2s !important;
+    -webkit-transition: .2s !important;
+}
+
+
+.btn:active {
+    box-shadow: none !important;
+    transition: .1s;
+    -moz-transition: .1s;
+    -webkit-transition: .1s;
+    transform: scale(.98);
+    -moz-transform: scale(.98);
+    -webkit-transform: scale(.98);
+}
+
+
+.cont-check-recordarme {
+    color: rgba(0,0,0,0.65);
+}
+
+
+
+/* Habilitar y deshabilitar dropdown al registrar una empresa */
+
+#cont-drop-empresas {
+    display: none;
+}
+

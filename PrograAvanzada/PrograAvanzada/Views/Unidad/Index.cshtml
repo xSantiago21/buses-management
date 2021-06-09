@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PrograAvanzada.Models.Unidad>
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="cont-table my-5 py-3 px-1 px-sm-3 shadow">
+
+        @if (Request.IsAuthenticated)
+        {
+            if (User.IsInRole("Gerente"))
+            {
+                <div class="mb-3 d-flex justify-content-end align-items-center">
+                    <a href="@Url.Action("Crear")" class="btn btn-success py-2">
+                        <svg viewBox="0 0 16 16" class="ico-svg-add-table">
+                            <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5v-1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v2h1V6L9 1z" />
+                            <path fill-rule="evenodd" d="M13.5 10a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z" />
+                            <path fill-rule="evenodd" d="M13 12.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z" />
+                        </svg>
+                        <label class="m-0">Agregar Unidad</label>
+                    </a>
+                </div>
+            }
+        }
+
+        <div style="overflow-x: auto">
+            <table class="table table-striped table-hover">
+
+                <thead class="thead-dark">
+                    <tr>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.NombreTipoPlaca)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Placa)</th>
+                        <th nowrap>@Html.DisplayNameFor(model => model.Estado)</th>
+                        @if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Gerente"))
+                            {
+                                <th nowrap></th>
+                            }
+                        }
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var colorEstado = (!item.Estado) ? "background-color: rgba(245, 66, 66, 0.4);" : "";
+
+                        <tr style="@colorEstado">
+
+                            <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+
+                            <td>@Html.DisplayFor(modelItem => item.NombreTipoPlaca)</td>
+
+                            <td>@Html.DisplayFor(modelItem => item.Placa)</td>
+
+                            <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+
+                            @if (Request.IsAuthenticated)
+                            {
+                                if (User.IsInRole("Gerente"))
+                                {
+                                    <td class="d-flex align-items-center justify-content-end">
+                                        <a href="@Url.Action("Editar", new { idUnidad = item.IdUnidad })">
+                                            <svg viewBox="0 0 16 16" class="ico-svg-edit-table">
+                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </a>
+                                        <div class="d-inline mx-2">|</div>
+                                        <a href="@Url.Action("Eliminar", new { idUnidad = item.IdUnidad })">
+                                            <svg viewBox="0 0 16 16" class="ico-svg-delete-table">
+                                                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm9.854 4.854a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+
+                                }
+                            }
+
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+

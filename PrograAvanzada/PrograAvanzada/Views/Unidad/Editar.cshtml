@@ -1,0 +1,126 @@
+﻿@model PrograAvanzada.Models.Unidad
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="cont-forms-crud my-5 mx-auto py-3 px-1 px-sm-3 shadow col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6">
+
+        <form action="/Unidad/Editar" method="post" class="w-100">
+            @Html.AntiForgeryToken()
+
+            <h4 class="text-center mt-2 text-info">Editar Unidad</h4>
+            <hr />
+
+            @Html.HiddenFor(model => model.IdUnidad)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", tabindex = 1 } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="input-group mb-3 mt-4" style="padding: 0px 15px 0px 15px">
+                <div class="input-group-prepend">
+                    @Html.LabelFor(model => model.IdTipoPlaca, htmlAttributes: new { @class = "input-group-text" })
+                </div>
+                @Html.DropDownListFor(model => model.IdTipoPlaca, new SelectList(ViewBag.TiposPlaca, "IdTipoPlaca", "Descripcion"), new { @class = "custom-select", tabindex = 2 })
+                @Html.ValidationMessageFor(model => model.IdTipoPlaca, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Placa, htmlAttributes: new { @class = "control-label col" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Placa, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", tabindex = 3 } })
+                    @Html.ValidationMessageFor(model => model.Placa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="input-group mb-3 mt-4" style="padding: 0px 15px 0px 15px">
+                <div class="input-group-prepend">
+                    @Html.LabelFor(model => model.IdEmpresa, htmlAttributes: new { @class = "input-group-text" })
+                </div>
+                @Html.DropDownListFor(model => model.IdEmpresa, new SelectList(ViewBag.Empresas, "IdEmpresa", "Descripcion"), "--Seleccione--", new { @class = "custom-select", tabindex = 4 })
+                @Html.ValidationMessageFor(model => model.IdEmpresa, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-group mb-3 mt-4" style="padding: 0px 15px 0px 15px">
+                <div class="input-group-prepend">
+                    @Html.LabelFor(model => model.IdLinea, htmlAttributes: new { @class = "input-group-text" })
+                </div>
+                @Html.DropDownListFor(model => model.IdLinea, new SelectList(ViewBag.Lineas, "IdLinea", "Descripcion"), new { @class = "custom-select", tabindex = 5 })
+                @Html.ValidationMessageFor(model => model.IdLinea, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col" })
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { tabindex = 6 } })
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            @if (ViewBag.Actualizado != null)
+            {
+                if (!ViewBag.Actualizado)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        Ha ocurrido un error al actualizar!
+                    </div>
+                }
+            }
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <input type="submit" value="Editar" class="btn btn-block btn-success" tabindex="7" />
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center mt-4 mb-3">
+                @Html.ActionLink("Regresar", "Consulta", null, new { @class = "text-info", tabindex = 8 })
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+                $("#IdEmpresa").change(function () {
+                    $("#IdLinea").empty();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CargaLineas")',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        data: JSON.stringify({ empresa: $("#IdEmpresa").val() }),
+                        success: function (lineas) {
+                            $("#IdLinea").append("<option value=''>--Seleccione--</option>");
+                            $.each(lineas, function (i, linea) {
+                                $("#IdLinea").append('<option value="' + linea.IdLinea + '">' + linea.Descripcion + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            //alert('Fallo al cargar las líneas : ' + ex);
+                            console.log("Fallo al cargar las líneas");
+                        }
+                    });
+                })
+
+            });
+
+    </script>
+}

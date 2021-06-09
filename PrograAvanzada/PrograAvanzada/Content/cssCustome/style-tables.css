@@ -1,0 +1,37 @@
+﻿.table {
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+
+
+/* Iconos para las tablas*/
+
+/*Icono Crear*/
+.ico-svg-add-table {
+    width: 1.2em;
+    height: 1.2em;
+    fill: #fcfafa !important;
+}
+
+
+/*Icono Editar*/
+.ico-svg-edit-table {
+    width: 1.2em;
+    height: 1.2em;
+    fill: #0060ba !important;
+}
+
+    .ico-svg-edit-table:hover {
+        fill: #004e96 !important;
+    }
+
+/*Icono Eliminar*/
+.ico-svg-delete-table {
+    width: 1.2em;
+    height: 1.2em;
+    fill: #eb4034 !important;
+}
+
+    .ico-svg-delete-table:hover {
+        fill: #cf2a1f !important;
+    }

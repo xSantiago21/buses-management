@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="min-vh-100 pt-5 px-2 px-md-3 px-lg-4">
+
+    <div class="cont-forms-crud my-5 mx-auto py-3 px-1 px-sm-3 shadow col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6">
+
+        <form action="/Unidad/Consulta" method="post" class="w-100">
+            @Html.AntiForgeryToken()
+            <h4 class="text-center mt-2 text-info">Seleccionar Empresa y línea</h4>
+            <hr />
+
+            <div class="input-group mb-3 mt-4" style="padding: 0px 15px 0px 15px">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="idEmpresa">Empresa</label>
+                </div>
+                @Html.DropDownList("idEmpresa", new SelectList(ViewBag.Empresas, "IdEmpresa", "Descripcion"), "--Seleccione--", new { @class = "custom-select", @tabindex = "1", @required = "" })
+            </div>
+
+            <div class="input-group mb-3 mt-4" style="padding: 0px 15px 0px 15px">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="idLinea">Línea</label>
+                </div>
+                @Html.DropDownList("idLinea", new SelectList(string.Empty), new { @class = "custom-select", @tabindex = "2", @required = "" })
+            </div>
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group mt-4">
+                <div class="col-md-12">
+                    <input type="submit" value="Consultar" class="btn btn-block btn-success" tabindex="3" />
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center mt-4 mb-3">
+                <a href="@Url.Action("Index","Usuario")" class="text-info" tabindex="4">Regresar</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+                $("#idEmpresa").change(function () {
+                    $("#idLinea").empty();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("CargaLineas")',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        data: JSON.stringify({ empresa: $("#idEmpresa").val() }),
+                        success: function (lineas) {
+                            $("#idLinea").append("<option value=''>--Seleccione--</option>");
+                            $.each(lineas, function (i, linea) {
+                                $("#idLinea").append('<option value="' + linea.IdLinea + '">' + linea.Descripcion + '</option>');
+                            });
+                        },
+                        error: function (ex) {
+                            //alert('Fallo al cargar las líneas : ' + ex);
+                            console.log("Fallo al cargar las líneas");
+                        }
+                    });
+                })
+
+            });
+
+    </script>
+}

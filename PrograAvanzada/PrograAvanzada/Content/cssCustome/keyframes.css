@@ -1,0 +1,66 @@
+﻿/* KEYFRAMES */
+
+@keyframes animateTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes animateRight {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes animateLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes animateBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0.7)
+    }
+
+    to {
+        transform: scale(1.03)
+    }
+}
+
+/* Clases */
+
+.animateOpen {
+    animation: animatezoom .5s ease-in;
+}

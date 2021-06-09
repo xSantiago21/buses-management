@@ -1,0 +1,46 @@
+﻿
+.cont-float-label {
+    position: relative;
+    margin-bottom: 2.5rem !important;
+}
+
+.input-form-flabel {
+    background-color: rgba(228, 228, 228, 0.10);
+    color: rgba(81, 81, 81, 0.85) !important;
+    border: none !important;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom: 3px solid rgba(98, 161, 243, 0.4) !important;
+    transition: .3s !important;
+    -moz-transition: .3s !important;
+    -webkit-transition: .3s !important;
+}
+
+    .input-form-flabel:focus {
+        background-color: rgba(228, 228, 228, 0.10);
+        border-bottom: 3.8px solid rgba(55, 123, 213, 0.7) !important;
+        box-shadow: 0px 2px 2px -2px gray !important;
+    }
+
+.float-label {
+    position: absolute;
+    top: 0;
+    padding: 3px 0px 0px 8px;
+    transition: 200ms;
+    opacity: 0.7;
+    color: rgba(57, 57, 57, 0.90);
+}
+
+.input-form-flabel:focus + .float-label {
+    font-size: 80%;
+    transform: translate3d(-10%, -105%, 0);
+    opacity: 1;
+    color: rgba(57, 57, 57, 0.7);
+}
+
+.input-form-flabel:not(:placeholder-shown) + .float-label {
+    font-size: 80%;
+    transform: translate3d(-10%, -105%, 0);
+    opacity: 1;
+    color: rgba(57, 57, 57, 0.7);
+}

@@ -1,0 +1,81 @@
+﻿@model PrograAvanzada.Models.InicioSesion
+
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="background-color: rgba(0,0,0,0.3)">
+
+    <div class="container my-5">
+
+        <div class="row px-2 px-sm-0">
+
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto cont-form animateOpen">
+
+                <form action="/Inicio/Index" method="post" class="w-100">
+                    @Html.AntiForgeryToken()
+
+                    <!--img src="../Content/img/iconBusPointD.png" alt="bus icon" class="icon-logIn d-block mx-auto mt-5"-->
+                    <svg class="icon-logIn d-block mx-auto mt-5" width="100" height="125" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" d="M-1-1h682v402H-1z" />
+                        <g><path d="M50.483 10.143c-19.984 0-36.184 16.2-36.184 36.185 0 28.802 36.184 63.815 36.184 63.815S86.667 75.13 86.667 46.328c0-19.984-16.2-36.185-36.184-36.185zm0 62.588c-14.583 0-26.404-11.821-26.404-26.403 0-14.583 11.821-26.405 26.404-26.405 14.582 0 26.404 11.82 26.404 26.404 0 14.583-11.822 26.404-26.404 26.404zM65.01 37.71h-1.121v-3.682c0-2.826-2.465-4.271-5.178-4.271H42.253c-2.712 0-5.177 1.445-5.177 4.27v3.683h-1.121c-.713 0-1.291.56-1.291 1.25v6.34c0 .69.578 1.25 1.291 1.25h1.121v10.28h1.354v2.789c0 .98.82 1.775 1.832 1.775h2.498c1.012 0 1.833-.795 1.833-1.775v-2.79h11.708v2.79c0 .98.82 1.775 1.832 1.775h2.498c1.012 0 1.832-.795 1.832-1.775v-2.79h1.426V46.552h1.121c.713 0 1.291-.56 1.291-1.251v-6.34c0-.69-.578-1.25-1.291-1.25zM41.168 54.303c-1.19 0-2.156-.936-2.156-2.09s.966-2.09 2.156-2.09c1.191 0 2.157.936 2.157 2.09s-.966 2.09-2.157 2.09zm7.776-7.47h-9.59V35.717h9.59v11.118zm3.078 0V35.717h9.59v11.118h-9.59zm7.775 7.47c-1.191 0-2.156-.936-2.156-2.09s.965-2.09 2.156-2.09 2.156.936 2.156 2.09-.964 2.09-2.156 2.09z" /></g>
+                    </svg>
+                    <!--h3 class="text-info text-center my-4">Iniciar Sesión</h3-->
+                    <h3 class="titulo-form text-info text-center my-2">Iniciar Sesión</h3>
+
+                    <div class="mt-5 mb-3 mx-3 mx-md-4 mx-lg-5">
+                        <div class="form-group cont-float-label">
+                            <!--input type="email" id="correo" class="form-control input-form-flabel" placeholder=" "-->
+                            @Html.TextBoxFor(model => model.Correo, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 1 })
+                            <label for="Correo" class="float-label">Correo</label>
+                            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label mb-4">
+                            <!--input type="password" id="contraseña" class="form-control input-form-flabel" placeholder=" "-->
+                            @Html.PasswordFor(model => model.Clave, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 2 })
+                            <label for="Clave" class="float-label">Contraseña</label>
+                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="cont-check-recordarme px-1">
+                            @Html.CheckBoxFor(model => model.Recordarme, htmlAttributes: new { tabindex = 3 })
+                            @Html.LabelFor(model => model.Recordarme)
+                        </div>
+
+                        @if (ViewBag.DatosIncorrectos != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                Correo o contraseña incorrectos!
+                            </div>
+                        }
+
+                        @if (ViewBag.Desactivado != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                Tu cuenta está desactivada!
+                            </div>
+                        }
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+                            <button type="submit" class="btn btn-block btn-outline-info m-1" tabindex="4">Ingresar</button>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center mt-4 mb-4">
+                        <a href="@Url.Action("Registro","Inicio")" class="text-info" tabindex="5">¿No tienes una cuenta?</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

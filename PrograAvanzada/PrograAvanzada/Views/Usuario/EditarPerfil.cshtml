@@ -1,0 +1,132 @@
+﻿@model PrograAvanzada.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="background-color: rgba(0,0,0,0.3)">
+
+    <div class="container my-5">
+
+        <div class="row">
+
+            <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto cont-form animateOpen">
+
+                <form action="/Usuario/EditarPerfil" method="post" class="w-100">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.IdUsuario)
+
+                    <h3 class="titulo-form text-info text-center mt-4 mb-3">Editar perfil</h3>
+
+                    <div class="mt-5 mb-4 mx-3 mx-md-4 mx-lg-4">
+
+                        <div class="form-group cont-float-label">
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 1 })
+                            <label for="Nombre" class="float-label">Nombre</label>
+                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label">
+                            @Html.TextBoxFor(model => model.Nombre2, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 2 })
+                            <label for="Nombre2" class="float-label">Segundo Nombre</label>
+                            @Html.ValidationMessageFor(model => model.Nombre2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label">
+                            @Html.TextBoxFor(model => model.Apellido1, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 3 })
+                            <label for="Apellido1" class="float-label">Primer Apellido</label>
+                            @Html.ValidationMessageFor(model => model.Apellido1, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label">
+                            @Html.TextBoxFor(model => model.Apellido2, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 4 })
+                            <label for="Apellido2" class="float-label">Segundo Apellido</label>
+                            @Html.ValidationMessageFor(model => model.Apellido2, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label">
+                            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 20, tabindex = 5 })
+                            <label for="Telefono" class="float-label">Teléfono</label>
+                            @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label">
+                            @Html.TextBoxFor(model => model.Correo, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 6 })
+                            <label for="Correo" class="float-label">Correo</label>
+                            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label">
+                            @Html.PasswordFor(model => model.Clave, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 50, tabindex = 7 })
+                            <label for="Clave" class="float-label">Contraseña</label>
+                            @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group cont-float-label" style="margin-bottom: 15px !important;">
+                            @Html.TextBoxFor(model => model.Identificacion, new { @class = "form-control input-form-flabel", placeholder = " ", maxlength = 30, tabindex = 8 })
+                            <label for="Identificacion" class="float-label">Identificación</label>
+                            @Html.ValidationMessageFor(model => model.Identificacion, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="IdTipoIdentificacion">Tipo identificación</label>
+                            </div>
+                            @Html.DropDownListFor(model => model.IdTipoIdentificacion, new SelectList(ViewBag.TiposId, "IdTipoIdentificacion", "Descripcion"), new { @class = "custom-select", tabindex = 9 })
+                            @Html.ValidationMessageFor(model => model.IdTipoIdentificacion, "", new { @class = "text-danger" })
+                        </div>
+
+                        @if (ViewBag.ExisteCorreo != null)
+                        {
+                            if (ViewBag.ExisteCorreo)
+                            {
+                                <div class="alert alert-warning" role="alert">
+                                    El correo ingresado ya está en uso!
+                                </div>
+                            }
+                        }
+
+                        @if (ViewBag.ExisteCedula != null)
+                        {
+                            if (ViewBag.ExisteCedula)
+                            {
+                                <div class="alert alert-warning" role="alert">
+                                    La cédula ingresada ya está en uso!
+                                </div>
+                            }
+                        }
+
+                        @if (ViewBag.Actualizado != null)
+                        {
+                            if (!ViewBag.Actualizado)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    Ha ocurrido un error al actualizar!
+                                </div>
+                            }
+                        }
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="d-flex align-items-center justify-content-center mt-5 mb-3">
+                            <button type="submit" class="btn btn-block btn-outline-info m-1" tabindex="10">Actualizar</button>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center mt-2 mb-4">
+                        <a href="@Url.Action("Index","Usuario")" class="text-info" tabindex="11">Regresar</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
